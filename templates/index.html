@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Search</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <h1>Image Search</h1>
+    
+    <!-- Search by Image -->
+    <form action="/image-to-image" method="post" enctype="multipart/form-data">
+        <label for="image">Upload an image:</label>
+        <input type="file" id="image" name="image" accept="image/*">
+        <button type="submit">Search by Image</button>
+    </form>
+    
+    <!-- Search by Text -->
+    <form action="/text-to-image" method="post">
+        <label for="text">Enter a text query:</label>
+        <input type="text" id="text" name="text">
+        <button type="submit">Search by Text</button>
+    </form>
+    
+    <!-- Search by Hybrid Query -->
+    <form action="/hybrid-search" method="post" enctype="multipart/form-data">
+        <label for="hybrid-image">Upload an image:</label>
+        <input type="file" id="hybrid-image" name="image" accept="image/*">
+        <label for="hybrid-text">Enter a text query:</label>
+        <input type="text" id="hybrid-text" name="text">
+        <label for="lambda">Lambda (0 to 1):</label>
+        <input type="number" id="lambda" name="lambda" step="0.1" min="0" max="1" value="0.5">
+        <button type="submit">Search by Hybrid Query</button>
+    </form>
+</body>
+</html>
